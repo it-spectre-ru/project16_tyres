@@ -19,10 +19,11 @@ def get_data():
 
   # print(r.json())
 
-  with open("r.json", "w") as file:
-    json.dump(r.json(), file, indent=4, ensure_ascii=False)
+  # with open("r.json", "w") as file:
+  #   json.dump(r.json(), file, indent=4, ensure_ascii=False)
 
-
+  pages_count = r.json()["pageCount"]
+  print(pages_count)
 
 
 def main():
