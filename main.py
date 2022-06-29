@@ -70,6 +70,7 @@ def get_data():
           "price": item_price,
           "url": item_url,
           "img_url": item_img,
+          "stores": stores,
           "total_amount": total_amount,
         }
       )
