@@ -23,7 +23,21 @@ def get_data():
   #   json.dump(r.json(), file, indent=4, ensure_ascii=False)
 
   pages_count = r.json()["pageCount"]
-  print(pages_count)
+  
+  for page in range(1, pages_count + 1):
+    url = f"https://roscarservis.ru/catalog/legkovye/?form_id=catalog_filter_form&filter_mode=params&sort=asc&filter_type=tires&arCatalogFilter_458_1500340406=Y&set_filter=Y&arCatalogFilter_463=668736523&PAGEN_1={page}"
+
+    r = requests.get(url=url, headers=headers)
+    data = r.json()
+    items = data["items"]
+
+    for item in items:
+      item_name = item["name"]
+      item_price = item["price"]
+      item_img = f'https://roscarservis.ru{item["imgSrc"]}'
+      item_url = f'https://roscarservis.ru{item["url"]}'
+
+    print(f"{item_name} #### {item_price}")
 
 
 def main():
